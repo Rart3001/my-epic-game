@@ -68,9 +68,9 @@ const Home: NextPage = () => {
       if (isCheckingPlayer) {
         return loadingIndicator;
       }
-      /*if (!!playerHero?.name) {
+      if (!!playerHero?.name) {
         return <Arena />;
-      }*/
+      }
 
       return <SelectCharacter />;
     } else {

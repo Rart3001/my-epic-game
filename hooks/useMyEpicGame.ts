@@ -58,10 +58,9 @@ interface OnCharacterNFTMintedCallback {
 }
 
 const useOnCharacterNFTMinted = (callback: OnCharacterNFTMintedCallback) => {
-  useContractEvent(contractConf, "CharacterNFTMinted", (event) => {
-    console.log("event", event);
-    return callback(event[0], event[1], event[2]);
-  });
+  useContractEvent(contractConf, "CharacterNFTMinted", (event) =>
+    callback(event[0], event[1], event[2])
+  );
 };
 
 interface AttackCompleteCallback {
@@ -69,7 +68,9 @@ interface AttackCompleteCallback {
 }
 
 const useOnAttackComplete = (callback: AttackCompleteCallback) => {
-  useContractEvent(contractConf, "AttackComplete", (event) => callback);
+  return useContractEvent(contractConf, "AttackComplete", (event) =>
+    callback(event[0], event[1])
+  );
 };
 
 interface CharacterRevivedCallback {
@@ -77,7 +78,9 @@ interface CharacterRevivedCallback {
 }
 
 const useOnCharacterRevived = (callback: CharacterRevivedCallback) => {
-  useContractEvent(contractConf, "CharacterRevived", callback);
+  return useContractEvent(contractConf, "CharacterRevived", (event) =>
+    callback(event[0], event[1], event[3])
+  );
 };
 
 interface HeroCriticalHitCallback {
@@ -85,7 +88,9 @@ interface HeroCriticalHitCallback {
 }
 
 const useOnHeroCriticalHit = (callback: HeroCriticalHitCallback) => {
-  useContractEvent(contractConf, "HeroCriticalHit", callback);
+  useContractEvent(contractConf, "HeroCriticalHit", (event) =>
+    callback(event[0], event[1])
+  );
 };
 
 interface BossMissAttackCallback {
@@ -93,7 +98,9 @@ interface BossMissAttackCallback {
 }
 
 const useOnBossMissAttack = (callback: BossMissAttackCallback) => {
-  useContractEvent(contractConf, "BossMissAttack", callback);
+  useContractEvent(contractConf, "BossMissAttack", (event) =>
+    callback(event[0], event[1])
+  );
 };
 
 export {
