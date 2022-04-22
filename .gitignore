@@ -4,6 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+node_modules
+.env
+coverage
+coverage.json
+typechain
 
 # testing
 /coverage
@@ -33,3 +38,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+#Hardhat files
+cache
+artifacts
