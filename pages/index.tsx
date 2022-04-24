@@ -69,7 +69,7 @@ const Home: NextPage = () => {
         return loadingIndicator;
       }
       if (!!playerHero?.name) {
-        return <Arena />;
+        return <Arena hero={playerHero} setPlayerHero={setPlayerHero} />;
       }
 
       return <SelectCharacter />;

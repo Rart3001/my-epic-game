@@ -25,20 +25,16 @@ const main = async () => {
   transaction = await gameContract.attackBoss();
   await transaction.wait();
 
+  transaction = await gameContract.attackBoss();
+  await transaction.wait();
+
+  transaction = await gameContract.attackBoss();
+  await transaction.wait();
+
   try {
-    transaction = await gameContract.toRevive();
+    transaction = await gameContract.attackBoss();
     await transaction.wait();
-  } catch (error) {
-    console.error(error);
-  }
 
-  transaction = await gameContract.attackBoss();
-  await transaction.wait();
-
-  transaction = await gameContract.attackBoss();
-  await transaction.wait();
-
-  try {
     transaction = await gameContract.attackBoss();
     await transaction.wait();
   } catch (error) {

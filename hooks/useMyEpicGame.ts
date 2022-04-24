@@ -19,6 +19,13 @@ const useGetAllDefaultCharacters = () => {
   });
 };
 
+const useGetBigBoss = () => {
+  const contract = useMyEpicGameContract();
+  return useQuery("bigBoss", () => {
+    return contract.getBigBoss();
+  });
+};
+
 declare type UseMintCharacterNFTParams = {
   characterId: number;
 };
@@ -42,14 +49,16 @@ const useCheckIfUserHasNFT = () => {
 const useAttackBoss = () => {
   const contract = useMyEpicGameContract(true);
   return useMutation(async () => {
-    await contract.attackBoss();
+    const txt = await contract.attackBoss();
+    await txt.wait();
   });
 };
 
 const useToRevive = () => {
   const contract = useMyEpicGameContract(true);
   return useMutation(async () => {
-    await contract.toRevive();
+    const txt = await contract.toRevive();
+    await txt.wait();
   });
 };
 
@@ -74,7 +83,7 @@ const useOnAttackComplete = (callback: AttackCompleteCallback) => {
 };
 
 interface CharacterRevivedCallback {
-  (address: string, tokenId: BigNumber, characterIndex: BigNumber): void;
+  (address: string, tokenId: BigNumber, newHp: BigNumber): void;
 }
 
 const useOnCharacterRevived = (callback: CharacterRevivedCallback) => {
@@ -105,6 +114,7 @@ const useOnBossMissAttack = (callback: BossMissAttackCallback) => {
 
 export {
   useGetAllDefaultCharacters,
+  useGetBigBoss,
   useMintCharacterNFT,
   useCheckIfUserHasNFT,
   useAttackBoss,

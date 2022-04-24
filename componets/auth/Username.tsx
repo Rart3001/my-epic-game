@@ -4,7 +4,7 @@ import { Col, Row } from "reactstrap";
 import Avatar from "@davatar/react/dist/Image";
 import { constants } from "ethers";
 import CurrentChain from "../chains/CurrentChain";
-var truncateMiddle = require("truncate-middle");
+const truncateMiddle = require("truncate-middle");
 
 interface UsernameProps {
   address: string;

@@ -288,6 +288,8 @@ contract MyEpicGame is ERC721 {
         hero.hp = newHp;
         hero.revived = true;
         hero.attackDamage = hero.attackDamage.mul(2);
+        console.log("Player was revived. New  hp: %s", hero.hp);
+
         emit CharacterRevived(msg.sender, tokenIdToRevive, newHp);
     }
 }
