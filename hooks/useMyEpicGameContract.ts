@@ -1,4 +1,4 @@
-import MyEpicGame from "../artifacts/contracts/MyEpicGame.sol/MyEpicGame.json";
+import MyEpicGame from "../utils/MyEpicGame.json";
 
 import { useContract, useProvider, useSigner } from "wagmi";
 import { CONTRACT_ADDRESS } from "../utils/constants";

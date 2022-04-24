@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import useMyEpicGameContract from "./useMyEpicGameContract";
 import Mapper from "../utils/mapper";
 
-import MyEpicGame from "../artifacts/contracts/MyEpicGame.sol/MyEpicGame.json";
+import MyEpicGame from "../utils/MyEpicGame.json";
 import { CONTRACT_ADDRESS } from "../utils/constants";
 
 const contractConf = {
