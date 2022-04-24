@@ -19,6 +19,17 @@ const useGetAllDefaultCharacters = () => {
   });
 };
 
+const useGetAllPlayers = () => {
+  const contract = useMyEpicGameContract();
+  return useQuery("players", async () => {
+    const data = await contract.getAllPlayer();
+    const filterData = data.filter(
+      (e: any) => e.user != "0x0000000000000000000000000000000000000000"
+    );
+    return filterData.map((e: any) => Mapper.transformPlayerData(e));
+  });
+};
+
 const useGetBigBoss = () => {
   const contract = useMyEpicGameContract();
   return useQuery("bigBoss", () => {
@@ -114,6 +125,7 @@ const useOnBossMissAttack = (callback: BossMissAttackCallback) => {
 
 export {
   useGetAllDefaultCharacters,
+  useGetAllPlayers,
   useGetBigBoss,
   useMintCharacterNFT,
   useCheckIfUserHasNFT,

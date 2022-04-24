@@ -11,6 +11,7 @@ import {
   useOnHeroCriticalHit,
 } from "../../hooks/useMyEpicGame";
 import Mapper from "../../utils/mapper";
+import Players from "../players/Players";
 import Boss from "./Boss";
 import Hero from "./Hero";
 
@@ -116,7 +117,10 @@ const Arena: React.FunctionComponent<ArenaProps> = ({
             : attackButton}
         </Col>
         <Col>
-          <Hero hero={hero} />
+          <Hero hero={hero} setPlayerHero={setPlayerHero} />
+        </Col>
+        <Col>
+          <Players />
         </Col>
       </Row>
     </Container>
